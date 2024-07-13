@@ -24,10 +24,10 @@ public class Account {
 	
 	private String agency;
 	
-	@Column(precision = 2, scale = 14)
+	@Column(scale = 2, precision = 14)
 	private BigDecimal balance;
 	
-	@Column(name = "account_limit", precision = 2, scale = 14)
+	@Column(name = "account_limit", scale = 2, precision = 14)
 	private BigDecimal limit;
 
 	
