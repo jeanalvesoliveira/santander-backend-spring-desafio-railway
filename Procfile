@@ -1,0 +1,1 @@
+web: java -jar target/santander-backend-spring-desafio-railway-0.0.1-SNAPSHOT.jar
