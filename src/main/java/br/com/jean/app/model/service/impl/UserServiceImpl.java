@@ -12,13 +12,8 @@ import br.com.jean.app.model.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 
-	private final UserRepository userRepository;
-	
-	
-	public UserServiceImpl(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
-	
+	@Autowired
+	UserRepository userRepository;
 	
 	@Override
 	public User findById(Long id) {
@@ -27,12 +22,10 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User create(User user) {
-		if (userRepository.existByAccountNumber(user.getAccount().getNumber())) {
-			throw new IllegalArgumentException("O id do usuário já existe");
+		if (userRepository.existsByAccountNumber(user.getAccount().getNumber())) {
+			throw new IllegalArgumentException("Este número de conta já existe");
 		}
 		return userRepository.save(user);
 	}
-	
-	
 
 }
